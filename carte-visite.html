@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carte de Visite — Chamsi Legal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #111;
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+      color: #F5F0E8;
+    }
+
+    .container { text-align: center; }
+
+    .card {
+      width: 530px;
+      height: 300px;
+      background: #1A1A1A;
+      border: 1px solid #C9A962;
+      display: flex;
+      overflow: hidden;
+      position: relative;
+    }
+    .card::after {
+      content: ''; position: absolute; top: 0; right: 0;
+      width: 120px; height: 120px; background: rgba(201,169,98,0.06);
+      border-radius: 0 0 0 100%;
+    }
+
+    .left {
+      flex: 1; padding: 30px 28px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      text-align: left; position: relative; z-index: 1;
+    }
+
+    .logo-bar {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .logo-box {
+      width: 38px; height: 38px; border: 1px solid #C9A962;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo-box span {
+      font-family: 'Cormorant Garamond', serif;
+      color: #C9A962; font-size: 16px; font-weight: 700;
+    }
+    .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      color: #F5F0E8; font-size: 13px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+    }
+
+    .content { margin: 22px 0 14px; }
+    .tagline {
+      color: #C9A962; font-size: 9px; text-transform: uppercase;
+      letter-spacing: 0.3em; margin-bottom: 8px;
+    }
+    .title {
+      font-family: 'Cormorant Garamond', serif;
+      color: #F5F0E8; font-size: 28px; font-weight: 700; line-height: 1.05;
+    }
+    .highlight { color: #C9A962; font-style: italic; }
+    .gold-line {
+      width: 28px; height: 2px; background: #C9A962; margin: 10px 0 16px;
+    }
+    .subtitle {
+      color: #A89F94; font-size: 11px; line-height: 1.65; max-width: 240px;
+    }
+
+    .contact-list { list-style: none; }
+    .contact-list li {
+      display: flex; align-items: center; gap: 8px;
+      color: #A89F94; font-size: 10px; margin-bottom: 5px;
+    }
+    .contact-list li .dot {
+      width: 4px; height: 4px; background: #C9A962; border-radius: 50%; flex-shrink: 0;
+    }
+    .contact-list a { color: #A89F94; text-decoration: none; }
+    .contact-list a:hover { color: #C9A962; }
+
+    .right {
+      width: 170px; background: #0D0D0D;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 20px; position: relative; z-index: 1;
+      border-left: 1px solid rgba(201,169,98,0.15);
+    }
+    .qr-label {
+      color: #C9A962; font-size: 8px; text-transform: uppercase;
+      letter-spacing: 0.22em; margin-bottom: 10px;
+    }
+    .qr-frame {
+      background: #FAF8F5; padding: 6px; line-height: 0;
+      border: 1px solid rgba(201,169,98,0.4);
+    }
+    .qr-frame img, .qr-frame svg { width: 100px; height: 100px; display: block; }
+    .qr-phone {
+      color: #A89F94; font-size: 9px; margin-top: 8px; letter-spacing: 0.05em;
+    }
+    .qr-cta {
+      color: #C9A962; font-size: 7px; text-transform: uppercase;
+      letter-spacing: 0.2em; margin-top: 3px;
+    }
+
+    .actions {
+      margin-top: 20px; display: flex; gap: 8px;
+      flex-wrap: wrap; justify-content: center;
+    }
+    .btn {
+      padding: 10px 20px; background: #C9A962; color: #111;
+      font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif; font-weight: 500;
+    }
+    .btn:hover { background: #DFC07A; }
+    .btn-outline {
+      background: transparent; color: #C9A962; border: 1px solid #C9A962;
+    }
+    .btn-outline:hover { background: #C9A962; color: #111; }
+    .hint {
+      margin-top: 10px; color: #555; font-size: 10px;
+    }
+
+    @media print {
+      body { background: #fff; }
+      .actions, .hint { display: none !important; }
+      .card { border: 1px solid #C9A962; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="left">
+        <div>
+          <div class="logo-bar">
+            <div class="logo-box"><span>CHA</span></div>
+            <span class="logo-text">Chamsi Haddad Al Flassi</span>
+          </div>
+          <div class="content">
+            <p class="tagline">Avocats &amp; Conseillers Juridiques — Dubaï</p>
+            <h1 class="title">Excellence<br/><span class="highlight">Juridique</span></h1>
+            <div class="gold-line"></div>
+            <p class="subtitle">Criminalité internationale, Interpol, extradition &amp; contentieux des affaires aux Émirats Arabes Unis.</p>
+          </div>
+        </div>
+        <div>
+          <ul class="contact-list">
+            <li><span class="dot"></span> <a href="https://chamsi-legal.com" target="_blank">chamsi-legal.com</a></li>
+            <li><span class="dot"></span> <a href="tel:+971589525296">+971 58 952 5296</a></li>
+            <li><span class="dot"></span> <a href="mailto:chamsi.g@chamsi-legal.com">chamsi.g@chamsi-legal.com</a></li>
+            <li><span class="dot"></span> DIFC, Gate Village, Dubaï — UAE</li>
+            <li><span class="dot"></span> <a href="https://wa.me/971589525296" target="_blank">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="right">
+        <p class="qr-label">WhatsApp</p>
+        <div class="qr-frame" id="qrcode"></div>
+        <p class="qr-phone">+971 58 952 5296</p>
+        <p class="qr-cta">Scannez pour nous contacter</p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn" onclick="window.print()">Imprimer PDF</button>
+      <a class="btn btn-outline" href="https://wa.me/971589525296" target="_blank">Ouvrir WhatsApp</a>
+      <a class="btn btn-outline" href="https://chamsi-legal.com" target="_blank">Voir le site</a>
+    </div>
+    <p class="hint">Le QR code se génère au chargement. Attends 2 secondes.</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof QRCode !== 'undefined') {
+        new QRCode(document.getElementById('qrcode'), {
+          text: 'https://wa.me/971589525296',
+          width: 100, height: 100,
+          colorDark: '#C9A962',
+          colorLight: '#FAF8F5',
+          correctLevel: QRCode.CorrectLevel.M
+        });
+      } else {
+        document.getElementById('qrcode').innerHTML = '<img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://wa.me/971589525296&color=C9A962&bgcolor=FAF8F5" width="100" height="100" alt="QR" />';
+      }
+    });
+  </script>
+</body>
+</html>
